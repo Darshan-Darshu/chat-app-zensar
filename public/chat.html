@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="chat">
+        <section class="chat__sidebar" id="sidebar""></section>
+        <section class=" chat__main">
+            <h2>Chat App</h2>
+            <div class="messages">
+            </div>
+            <div class="chat__mainForm">
+                <form action="" id="message-form" autocomplete="off">
+                    <input type="text" name="messsage" id="message-input" placeholder="Write a message here..."
+                        required>
+                    <button type="submit">Click</button>
+                </form>
+
+                <button id="send-location">Location</button>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <script id="message-template" type="text/html">
+        <div class="message">
+            <p class="message__user">
+                <span>{{username}}</span>
+                <span>{{createdAt}}</span>
+            </p>
+            <p class="message__message">{{message}}</p>
+        </div>
+    </script>
+
+    <script id="message-location-template" type="text/html">
+            <div class="message">
+                <p class="message__user">
+                    <span>{{username}}</span>
+                    <span>{{createdAt}}</span>
+                </p>
+                <p class="message__message"> 
+                    <a href={{location}} target="_blank">My Location</a>
+                </p>
+            </div>
+        </script>
+
+    <script id="rooms-data-template" type="text/html">
+        <div class="room__data">
+            <h1>{{room}}</h1>
+            <div>
+                <h2>Users</h2>
+                <ul>
+                    {{#users}}
+                        <li>{{username}}</li>
+                    {{/users}}
+                </ul>
+            </div>
+        </div>
+     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
+
+</html>
